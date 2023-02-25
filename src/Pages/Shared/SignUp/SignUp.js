@@ -88,7 +88,28 @@ const SignUp = () => {
       .then((result)=>{
         
         const user= result.user;
-        console.log(user)
+        console.log(user.displayName,user.email)
+        const email=user.email
+        const googleUser={
+           name:user.displayName,
+         email:user.email
+        }
+        
+        fetch('https://niche-product-server-assignment-12.vercel.app/users',{
+          method:"POST",
+          headers:{
+            'content-type':"application/json"
+          },
+          body:JSON.stringify(googleUser)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data)
+          setCreateEmail(email)
+          toast("User Create Successfully")
+        
+        
+        })
         
         navigate(from, { replace: true });
       })
