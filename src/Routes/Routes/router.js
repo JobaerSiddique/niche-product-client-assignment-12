@@ -48,7 +48,7 @@ const router = createBrowserRouter([
                 element:<PrivateRoute>
                     <Purches/>
                 </PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+                loader:({params})=>fetch(`https://niche-product-server-assignment-12.vercel.app/products/${params.id}`)
             },
             
         ]

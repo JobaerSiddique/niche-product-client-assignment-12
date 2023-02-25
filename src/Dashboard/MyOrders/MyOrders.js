@@ -8,7 +8,7 @@ import OrdersInfo from './OrdersInfo';
 const MyOrders = () => {
   // const[orders,setOrders]=useState([])
 const {user,loading}=useContext(AuthContext)
-const url=`http://localhost:5000/bookings?email=${user?.email}`
+const url=`https://niche-product-server-assignment-12.vercel.app/bookings?email=${user?.email}`
 
 const {data:orders=[],refetch}=useQuery({
   queryKey:['bookings',user?.email],
@@ -30,7 +30,7 @@ const {data:orders=[],refetch}=useQuery({
     const handleDelete= id=>{
       const processd= window.confirm('Are You want delete this bookings?')
       if(processd){
-        fetch(`http://localhost:5000/bookings/${id}`,{
+        fetch(`https://niche-product-server-assignment-12.vercel.app/bookings/${id}`,{
           method:"DELETE"
         })
         .then(res=>res.json())

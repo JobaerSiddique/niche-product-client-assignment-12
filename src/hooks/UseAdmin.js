@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
     const [adminLoading,setAdminLoading]=useState(true)
     useEffect(()=>{
         if(email){
-            fetch(`http://localhost:5000/users/admin/${email}`)
+            fetch(`https://niche-product-server-assignment-12.vercel.app/users/admin/${email}`)
             .then(res=>res.json())
             .then(data=>{
                 setIsAdmin(data.isAdmin)

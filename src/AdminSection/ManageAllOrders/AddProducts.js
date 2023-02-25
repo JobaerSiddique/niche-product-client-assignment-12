@@ -45,7 +45,7 @@ const AddProducts = () => {
         transmissiontype:data.transmissiontype
         }
         console.log('addBike',addBike)
-        fetch('http://localhost:5000/products',{
+        fetch('https://niche-product-server-assignment-12.vercel.app/products',{
           method:"POST",
           headers:{
             'content-type':'application/json'

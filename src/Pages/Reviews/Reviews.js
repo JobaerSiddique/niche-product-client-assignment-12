@@ -14,7 +14,7 @@ const Reviews = () => {
     const {data:review=[]}=useQuery({
         queryKey:['review'],
         queryFn:async()=>{
-            const res= await fetch('http://localhost:5000/reviews')
+            const res= await fetch('https://niche-product-server-assignment-12.vercel.app/reviews')
             const data = res.json()
             return data
            
@@ -22,7 +22,7 @@ const Reviews = () => {
     })
     return (
         <div>
-            <h2 className='text-center text-xl lg:text-5xl font-bold'>Customers Reviews</h2>
+            <h2 className='text-center text-xl lg:text-5xl font-bold mt-20 lg:mt-10'>Customers Reviews</h2>
             <div className='grid gap-20 grid-rows-1 lg:grid-cols-3 mt-5 mb-5 '>
                 {
                     review.map(rev=><ReviewInfo

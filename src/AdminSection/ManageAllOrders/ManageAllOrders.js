@@ -8,7 +8,7 @@ const ManageAllOrders = () => {
     const {data:orders=[],refetch}=useQuery({
     queryKey:['bookings'],
     queryFn:async()=>{
-        const res= await fetch('http://localhost:5000/bookings')
+        const res= await fetch('https://niche-product-server-assignment-12.vercel.app/bookings')
         const data=await res.json();
         return data
       }
@@ -16,7 +16,7 @@ const ManageAllOrders = () => {
    })
 
    const handleApprove = id=>{
-    fetch(`http://localhost:5000/bookings/${id}`,{
+    fetch(`https://niche-product-server-assignment-12.vercel.app/bookings/${id}`,{
         method:"PUT",
         headers:{
             'content-type':'application/json'

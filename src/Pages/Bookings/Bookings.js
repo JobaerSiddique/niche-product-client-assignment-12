@@ -18,7 +18,7 @@ const Bookings = ({product}) => {
       Address:data.address,
       status:''
     }
-    fetch('http://localhost:5000/bookings',{
+    fetch('https://niche-product-server-assignment-12.vercel.app/bookings',{
       method:"POST",
       headers:{
         'content-type':'application/json'

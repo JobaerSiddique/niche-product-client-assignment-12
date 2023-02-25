@@ -19,7 +19,7 @@ const ManageProdects = () => {
     const {data:products=[],refetch}=useQuery({
         queryKey:['products'],
         queryFn: async()=>{
-            const res = await fetch('http://localhost:5000/products')
+            const res = await fetch('https://niche-product-server-assignment-12.vercel.app/products')
             const data= await res.json()
             return data
         }
@@ -28,7 +28,7 @@ const ManageProdects = () => {
     const handleDeleteProducts=id=>{
         const agree = window.confirm("Are you want to delete This Products")
         if(agree){
-            fetch(`http://localhost:5000/products/${id}`,{
+            fetch(`https://niche-product-server-assignment-12.vercel.app/products/${id}`,{
                 method:"delete"
             })
             .then(res=>res.json())
