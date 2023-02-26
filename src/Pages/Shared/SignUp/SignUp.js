@@ -11,7 +11,7 @@ const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const location=useLocation()
     const { createUser,updateUser,googleLog,loading} = useContext(AuthContext)
-    let from = location.state?.from?.pathname ||"/"||'/products/:id';
+    let from = location.state?.from?.pathname ||"/";
     const navigate=useNavigate()
     const [createEmail,setCreateEmail]=useState('')
     const[token]=UseToken(createEmail)
@@ -48,7 +48,7 @@ const SignUp = () => {
         updateUser(userInfo)
         .then(()=>{
           saveUser(data.name,data.email)
-          
+          navigate(from, { replace: true });
           
         })
         .catch((error) => {
@@ -74,7 +74,7 @@ const SignUp = () => {
           console.log(data)
           setCreateEmail(email)
           toast("User Create Successfully")
-        
+          navigate(from, { replace: true });
         
         })
       }
@@ -111,7 +111,7 @@ const SignUp = () => {
           console.log(data)
           setCreateEmail(email)
           toast("User Create Successfully")
-        
+          navigate(from, { replace: true });
         
         })
         

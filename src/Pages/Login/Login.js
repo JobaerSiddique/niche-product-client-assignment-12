@@ -12,7 +12,7 @@ const Login = () => {
   let location = useLocation();
   const navigate = useNavigate()
   const [createEmail,setCreateEmail]=useState('')
-  let from = location.state?.from?.pathname || "/products/:id"||'/';
+  let from = location.state?.from?.pathname || "/products/:id";
   const handleLogin = (data) => {
     
     login(data.email,data.password)
