@@ -8,7 +8,9 @@ const Bookings = ({product}) => {
    const{bikeName,img,biketype,brakes,cc,displacement,enginetype,enginecooling,frontbrake,gears,maxpower,rearbrake,mileage,power,topspeed,tyre,startingtype,transmissiontype,price,brand}= product
    const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const handleBooking = data => {
-    console.log(data)
+    
+    const date = new Date()
+    console.log(date)
     const bookings ={
       customerName:data.name,
      email:data.email,

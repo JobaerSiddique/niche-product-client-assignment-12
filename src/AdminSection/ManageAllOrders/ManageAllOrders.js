@@ -33,6 +33,25 @@ const ManageAllOrders = () => {
         }
     })
    }
+
+   const handleRejectOrder = id=>{
+    fetch(`https://niche-product-server-assignment-12.vercel.app/bookings/${id}`,{
+      method:"PUT",
+      headers:{
+          'content-type':'application/json'
+      },
+      body:JSON.stringify({status:'Rejected'})
+  })
+  .then(res=>res.json())
+  .then(update=>{
+      console.log('update order',update)
+      if(update.modifiedCount>0){
+          
+          toast.success('Status Rejected')
+          refetch()
+      }
+  })
+   }
    
     return (
         <div>
@@ -59,7 +78,8 @@ const ManageAllOrders = () => {
             <td>{order.email}</td>
             <td>{order.bikeModel}</td>
             <td>{order.price}</td>
-            <td>{order?.status? <span>Confired</span>: <button onClick={()=> handleApprove(order._id)} className='btn btn-xs btn-primary'>Approved</button>}</td>
+            <td>{order?.status? <span className='text-purple-500 font-bold'>Confired</span>: <button onClick={()=> handleApprove(order._id)} className='btn btn-xs btn-primary'>Approved</button>}</td>
+            <td> <button onClick={()=> handleRejectOrder(order._id)} className='btn btn-xs btn-warning'>Rejected</button></td>
           </tr>)
       }
       
