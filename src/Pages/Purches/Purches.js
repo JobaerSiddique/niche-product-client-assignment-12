@@ -6,7 +6,7 @@ const Purches = () => {
     const product = useLoaderData()
     const{bikeName,img,biketype,brakes,cc,displacement,enginetype,enginecooling,frontbrake,gears,maxpower,rearbrake,mileage,power,topspeed,tyre,startingtype,transmissiontype,price,brand}= product
     return (
-        <div className=' mb-20 grid gap-20 grid-cols-1 lg:grid-cols-2 mt-20 p-5'>
+        <div className='grid gap-20 grid-cols-1 lg:grid-cols-2 mt-20 p-5'>
             <div>
             <img className='w-80' src={img} alt="" />
             <h2 className='text-center text-orange-600 text-xl font-bold lg:text-2xl mt-5'>Model : {bikeName}</h2>
@@ -134,7 +134,7 @@ const Purches = () => {
   </table>
 </div>
             </div>
-            <div   >
+            <div  >
                 <div className='w-full h-10 rounded bg-black'>
                     <h1 className='text-orange-500 text-center  text-2xl'>Booking Section</h1>
                     <Bookings

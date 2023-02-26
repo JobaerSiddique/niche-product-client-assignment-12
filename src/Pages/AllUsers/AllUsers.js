@@ -27,6 +27,19 @@ const AllUsers = () => {
             toast.error('failed')
         })
       }
+      const handleDeleteUser=id=>{
+        fetch(`https://niche-product-server-assignment-12.vercel.app/users/${id}`,{
+          method:'delete'
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data)
+          if(data.deletedCount>0){
+            toast.success('Successfully User Delete')
+            refetch()
+          }
+        })
+      }
     return (
         <div>
             <h1 className='text-xl text-purple-600 font-semibold'>Users : {users.length}</h1>
@@ -50,7 +63,7 @@ const AllUsers = () => {
             <td>{user.name}</td>
             <td>{user.email}</td>
             <td>{user.role !== 'admin' && <button onClick={()=>handleAdmin(user._id)} className='btn btn-xs btn-info'>Make Admin</button>}</td>
-            <td><button className='btn btn-xs '>Delete</button></td>
+            <td><button onClick={()=>handleDeleteUser(user._id)} className='btn btn-xs '>Delete</button></td>
           </tr>)
      }
     

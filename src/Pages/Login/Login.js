@@ -28,8 +28,12 @@ const Login = () => {
     .then((result)=>{
       
       const user= result.user;
-      console.log(user.displayName,user.email)
-      const email=user.email
+      if(user?.uid){
+        toast.success('Login Successfully')
+        navigate(from, { replace: true });
+      }
+      else{
+        const email=user.email
       const googleUser={
          name:user.displayName,
        email:user.email
@@ -52,6 +56,8 @@ const Login = () => {
       })
       
       navigate(from, { replace: true });
+      }
+      
     })
   }  
    if(loading){
@@ -71,7 +77,7 @@ const Login = () => {
   </div>
 </div>
            </div>
-           <div className="hero h-screen ">
+           <div className="hero  ">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
      <img className='ml-5' src={img2} alt="" />

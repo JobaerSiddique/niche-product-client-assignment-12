@@ -53,10 +53,10 @@ const Bookings = ({product}) => {
     message:'Name Must be Required'
   } 
 })} 
-  className="input input-bordered w-full max-w-xs" />
+  className="input input-bordered w-full " />
   {errors.name?.type === 'required' && <p className='text-rose-500 mt-3'>{errors.name?.message}</p>}
 </div>
-            <div className="form-control w-full max-w-xs mt-5">
+            <div className="form-control w-full  mt-5">
   <label className="label">
     <span className="label-text">Customer Email</span>
     
@@ -66,10 +66,10 @@ const Bookings = ({product}) => {
   placeholder="Type here" 
   value={user?.email}
   {...register("email", { required: true })} 
-  className="input input-bordered w-full max-w-xs" />
+  className="input input-bordered w-full " />
   
 </div>
-            <div className="form-control w-full max-w-xs mt-5">
+            <div className="form-control w-full  mt-5 mb-20">
   <label className="label">
     <span className="label-text">Phone</span>
     
@@ -86,11 +86,11 @@ const Bookings = ({product}) => {
   }
   
   })} 
-  className="input input-bordered w-full max-w-xs" />
+  className="input input-bordered w-full" />
   {errors.phone?.type === 'required'&& <span className='text-rose-500 mt-3'>{errors.phone?.message}</span>}
   {errors.phone?.type === 'maxLength'&& <p className='text-rose-500 mt-3'>{errors.phone?.message}</p>}
 </div>
-            <div className="form-control w-full max-w-xs mt-5">
+            <div className="form-control w-full  mt-5">
   <label className="label">
     <span className="label-text">Bike Model</span>
     
@@ -100,10 +100,10 @@ const Bookings = ({product}) => {
   placeholder="Enter Your Phone Number" 
   value={bikeName}
   {...register("model", { required: true })} 
-  className="input input-bordered w-full max-w-xs" />
+  className="input input-bordered w-full" />
   
 </div>
-            <div className="form-control w-full max-w-xs mt-5">
+            <div className="form-control w-full  mt-5">
   <label className="label">
     <span className="label-text">Price</span>
     
@@ -113,7 +113,7 @@ const Bookings = ({product}) => {
   placeholder="" 
   value={price}
   {...register("price", { required: true })} 
-  className="input input-bordered w-full max-w-xs" />
+  className="input input-bordered w-full " />
   
 </div>
 <div className="form-control">
@@ -127,7 +127,7 @@ const Bookings = ({product}) => {
   placeholder="address"/>
  
 </div>
-<input className='mt-5 btn btn-outline btn-success w-full max-w-xs' type="submit" value="Bookings" />
+<input className='mt-5 btn btn-outline btn-success w-full ' type="submit" value="Bookings" />
             </form>
 </div>
     );

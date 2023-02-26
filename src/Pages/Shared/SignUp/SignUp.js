@@ -88,8 +88,12 @@ const SignUp = () => {
       .then((result)=>{
         
         const user= result.user;
-        console.log(user.displayName,user.email)
-        const email=user.email
+        if(user?.uid){
+          toast.success('Login Successfully')
+          navigate(from, { replace: true });
+        }
+        else{
+          const email=user.email
         const googleUser={
            name:user.displayName,
          email:user.email
@@ -112,6 +116,8 @@ const SignUp = () => {
         })
         
         navigate(from, { replace: true });
+        }
+        
       })
     }  
     if(loading){
@@ -130,7 +136,7 @@ const SignUp = () => {
   </div>
 </div>
            </div>
-           <div className="hero h-screen ">
+           <div className="hero  ">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
      <img className='ml-5' src={signup} alt="" />
@@ -138,7 +144,7 @@ const SignUp = () => {
     
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       
-      <div className="card-body">
+      <div className="card-body ">
         <form onSubmit={handleSubmit(handleLogin)}>
         <div className="form-control w-full max-w-xs">
   <label className="label">
